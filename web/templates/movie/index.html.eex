@@ -1,0 +1,25 @@
+<h2>Best Movies</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>Year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for movie <- @movies do %>
+    <tr>
+      <td><%= movie.title %></td>
+      <td><%= movie.summary %></td>
+      <td><%= movie.year %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: movie_path(@conn, :show, movie) %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
