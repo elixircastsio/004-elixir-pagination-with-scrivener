@@ -1,5 +1,7 @@
 <h2>Best Movies</h2>
 
+<%= pagination_links @page, next: "Next", previous: "Prev" %>
+
 <table class="table">
   <thead>
     <tr>

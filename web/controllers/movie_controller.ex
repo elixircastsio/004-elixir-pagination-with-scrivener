@@ -3,9 +3,10 @@ defmodule Teacher.MovieController do
 
   alias Teacher.Movie
 
-  def index(conn, _params) do
-    movies = Repo.all(Movie)
-    render(conn, "index.html", movies: movies)
+  def index(conn, params) do
+    page = Movie
+          |> Repo.paginate(params)
+    render(conn, "index.html", movies: page.entries, page: page)
   end
 
   def new(conn, _params) do
